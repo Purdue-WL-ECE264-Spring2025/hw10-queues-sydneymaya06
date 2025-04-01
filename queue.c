@@ -124,5 +124,6 @@ int number_of_moves(struct game_state start)
     //         break;
     //     }
     // }
+    free_list(q.data);
     return count; 
 }
