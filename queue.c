@@ -113,7 +113,7 @@ int number_of_moves(struct game_state start)
         queue_count = 0;
         count++;
         printf("count %d\n", count);
-        if(count > 11)
+        if(count > 9)
         {
             break;
         }
