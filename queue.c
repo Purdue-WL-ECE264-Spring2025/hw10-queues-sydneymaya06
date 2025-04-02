@@ -69,7 +69,6 @@ int number_of_moves(struct game_state start)
         {
             next_grid.tiles[next_grid.empty_row][next_grid.empty_col] = next_grid.tiles[next_grid.empty_row - 1][next_grid.empty_col];
             next_grid.tiles[next_grid.empty_row - 1][next_grid.empty_col] = 0;
-            enqueue(&q, next_grid);
             if(check_list(&q, serialize(next_grid)) == 0)
             {
                 enqueue(&q, next_grid);
@@ -82,7 +81,6 @@ int number_of_moves(struct game_state start)
         {
             next_grid.tiles[next_grid.empty_row][next_grid.empty_col] = next_grid.tiles[next_grid.empty_row][next_grid.empty_col + 1];
             next_grid.tiles[next_grid.empty_row][next_grid.empty_col + 1] = 0;
-            enqueue(&q, next_grid);
             if(check_list(&q, serialize(next_grid)) == 0)
             {
                 enqueue(&q, next_grid);
@@ -95,7 +93,6 @@ int number_of_moves(struct game_state start)
         {
             next_grid.tiles[next_grid.empty_row][next_grid.empty_col] = next_grid.tiles[next_grid.empty_row][next_grid.empty_col - 1];
             next_grid.tiles[next_grid.empty_row][next_grid.empty_col - 1] = 0;
-            enqueue(&q, next_grid);
             if(check_list(&q, serialize(next_grid)) == 0)
             {
                 enqueue(&q, next_grid);
