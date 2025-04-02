@@ -19,17 +19,12 @@ void insert_at_head(struct linked_list *list, size_t value)
 
 void insert_at_tail(struct linked_list *list, size_t value)
 {
-  //printf("insert at tail\n");
-  // printf("val: %d\n", (int)value);
-  // printf("address %p\n", list->head);
   if(list->head == NULL)
   {
-    // printf("list is NULL\n");
     list->head = new_node(value);
     return;
   }
   struct list_node * p = list->head;
-  //printf("%d\n", (int)p->value);
   while((p->next != NULL))
   {
     p = p->next;
@@ -54,20 +49,28 @@ size_t remove_from_head(struct linked_list *list)
 
 size_t remove_from_tail(struct linked_list *list)
 { 
-  if(list->head == NULL)
+  struct list_node * q = list->head;
+  size_t val;
+  if(q == NULL)
   {
     return -1;
   }
-  struct list_node * p = list->head;
-  struct list_node * q;
-  while((p->next != NULL))
+  if(q -> next == NULL)
   {
-    q = p;
-    p = p->next;
+    val = q->value;
+    list->head = list->head->next;
+    free(q);
+    return val; 
   }
-  q -> next = NULL;
-  size_t val = p->value;
-  free(p);
+  struct list_node * p = list->head;
+  while((q->next != NULL))
+  {
+    p = q;
+    q = q->next;
+  }
+  val = p->value;
+  free(q);
+  p-> next = NULL;
   return val; 
 }
 
