@@ -31,7 +31,7 @@ int number_of_moves(struct game_state start)
     
     
 
-    while(success == 0)
+    while(true)
     {
         // int length = 1;
         // struct list_node * p = q.data.head;
@@ -52,9 +52,6 @@ int number_of_moves(struct game_state start)
                 break;
             }
             struct game_state grid_copy = next_grid;
-        // printf("next grid: %d, %d\n", next_grid.empty_col, next_grid.empty_row);
-        // printf("next grid: %d\n", next_grid.tiles[next_grid.empty_row + 1][next_grid.empty_col]);
-        // printf("next grid: %d\n", next_grid.tiles[next_grid.empty_row][next_grid.empty_col]);
 
         // MOVE UP
         if(next_grid.empty_row < 3)
@@ -107,13 +104,13 @@ int number_of_moves(struct game_state start)
             printf("\nCOUNT: %d\n", count);
             break;
         }
-        printf("tier %d\n", tier);
+        //printf("tier %d\n", tier);
         tier = queue_count;
-        printf("tier %d\n", tier);
+        //printf("tier %d\n", tier);
         queue_count = 0;
         count++;
         printf("count %d\n", count);
-        if(count > 9)
+        if(count > 10)
         {
             break;
         }
